@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'templates/**'
+      - 'Dockerfile'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Packages
+      run: sudo apt install -y libmongoc-dev
+
+    - name: V Compiler
+      run: |
+        cd
+        curl -OL https://github.com/vlang/v/releases/latest/download/v_linux.zip
+        unzip -q v_linux.zip
+        ./v/v symlink
+
+    - name: App Build
+      run: v build.vsh release
+
+    - uses: superfly/flyctl-actions/setup-flyctl@master
+    - run: flyctl deploy --local-only
+      env:
+        FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
