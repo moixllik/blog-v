@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog sobre Computación, Contabilidad y Arte">
-    <title>Moixllik</title>
+    <title>Buscar - Moixllik</title>
     @include 'html/frameworks'
 </head>
 
@@ -13,11 +12,12 @@
     <main>
         @include 'html/nav'
         <header>
-            <h1><a href="/">Irving Montalvo</a></h1>
-            <h2>Computación, Contabilidad y Arte</h2>
+            <h1><a href="/search/">Búsqueda en Publicaciones</a></h1>
+            <form action="/search/">
+                <input type="search" name="q" placeholder="Buscar" value="@query" />
+            </form>
         </header>
-        <section class="text-left">
-            <h3>Nuevas Publicaciones</h3>
+        <article>
             <dl>
                 @for post in posts
                 <dt>
@@ -26,7 +26,7 @@
                 <dd>@{post.desc?}</dd>
                 @end
             </dl>
-        </section>
+        </article>
         @include 'html/footer'
     </main>
 </body>

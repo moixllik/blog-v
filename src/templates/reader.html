@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@post.desc">
+    <title> @{post.title?} - Moixllik</title>
+    @include 'html/frameworks'
+</head>
+
+<body class="container">
+    <main>
+        @include 'html/nav'
+        <header>
+            <h1><a href="/p/@post.uri/">@{post.title?}</a></h1>
+            <div class="text-right">
+                Modificado el @{post.modified?[..10]}
+            </div>
+        </header>
+        <article>
+            <div>@{post.content?}</div>
+        </article>
+        @include 'html/footer'
+    </main>
+</body>
+
+</html>

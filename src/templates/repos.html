@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - Moixllik</title>
+    @include 'html/frameworks'
+</head>
+
+<body class="container">
+    <main>
+        @include 'html/nav'
+        <header>
+            <h1><a href="/repos/">Lista de Proyectos</a></h1>
+        </header>
+        <article>
+            <h2>Actualizados</h2>
+            <dl>
+                @for repo in repos_opened
+                <dt><a href="@repo.html_url">@repo.name</a></dt>
+                <dd>@repo.description</dd>
+                @end
+            </dl>
+
+            <h2>Ramas</h2>
+            <dl>
+                @for repo in repos_forked
+                <dt><a href="@repo.html_url">@repo.name</a></dt>
+                <dd>@repo.description</dd>
+                @end
+            </dl>
+
+            <h2>Archivados</h2>
+            <dl>
+                @for repo in repos_archived
+                <dt><a href="@repo.html_url">@repo.name</a></dt>
+                <dd>@repo.description</dd>
+                @end
+            </dl>
+        </article>
+        @include 'html/footer'
+    </main>
+</body>
+
+</html>

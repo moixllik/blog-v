@@ -10,13 +10,23 @@ fn sh(commands string) {
 	}
 }
 
+mut cc := 'clang'
+$if windows {
+	cc = 'msvc'
+	path := os.getenv('PATH')
+	libs := os.join_path(os.vmodules_dir(), 'mongo\\thirdparty\\win64\\bin')
+	os.setenv('PATH', '${libs};${path}', true)
+}
+
 match os.args[1] or { '' } {
 	'release' {
 		sh('v install')
-		sh('v -prod -skip-unused -o app src')
+		sh('v -cc ${cc} -prod -skip-unused -o app src')
 	}
 	'debug' {
-		sh('v -o app src')
+		sh('v -cc ${cc} -o app src')
 	}
-	else {}
+	else {
+		sh('v -cc ${cc} run src')
+	}
 }
