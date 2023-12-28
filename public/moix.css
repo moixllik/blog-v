@@ -27,6 +27,7 @@ a.button {
     box-sizing: border-box;
     text-decoration: none;
     border-radius: 3px;
+    color: inherit;
     border: 1px solid var(--c3);
 }
 input {
