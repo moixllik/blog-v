@@ -9,14 +9,25 @@
     @include 'html/frameworks'
 </head>
 
-<body class="container">
-    <main>
-        @include 'html/nav'
-        <header>
-            <h1><a href="/">Irving Montalvo</a></h1>
+<body class="flex">
+    <main class="container">
+        <header class="text-center">
+            <h1>
+                <a href="/">
+                    <svg viewBox="0 0 150 90" height="90">
+                        <rect x="30" y="0" width="35" height="90"></rect>
+                        <rect x="85" y="0" width="35" height="90"></rect>
+
+                        <rect x="0" y="20" width="150" height="50"></rect>
+
+                        <rect x="35" y="35" width="20" height="20" fill="white"></rect>
+                        <rect x="95" y="35" width="20" height="20" fill="white"></rect>
+                    </svg>
+                </a>
+            </h1>
             <h2>Computación, Contabilidad y Arte</h2>
         </header>
-        <section class="text-left">
+        <section>
             <h3>Nuevas Publicaciones</h3>
             <dl>
                 @for post in posts
@@ -29,6 +40,7 @@
         </section>
         @include 'html/footer'
     </main>
+    @include 'html/nav'
 </body>
 
 </html>

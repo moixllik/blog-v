@@ -9,9 +9,8 @@
     @include 'html/frameworks'
 </head>
 
-<body class="container">
-    <main>
-        @include 'html/nav'
+<body class="flex">
+    <main class="container">
         <header>
             <h1><a href="/p/@post.uri/">@{post.title?}</a></h1>
             <div class="text-right">
@@ -23,6 +22,7 @@
         </article>
         @include 'html/footer'
     </main>
+    @include 'html/nav'
 </body>
 
 </html>

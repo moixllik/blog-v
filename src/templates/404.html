@@ -7,18 +7,16 @@
     @include 'html/frameworks'
 </head>
 
-<body class="container text-center">
-    <main>
-        @include 'html/nav'
-        <header>
+<body class="flex">
+    <main class="container">
+        <header class="text-center">
             <h1>404</h1>
             <h2>No disponible</h2>
-        </header>
-        <article>
             <h3><a href="/">Portada</a></h3>
-        </article>
+        </header>
         @include 'html/footer'
     </main>
+    @include 'html/nav'
 </body>
 
 </html>

@@ -56,7 +56,7 @@ pub fn (mut app App) db_get_updates() []Post {
 	}', '{
 		"limit": 7,
 		"sort": {
-			"modified": -1
+			"modified": 1
 		},
 		"projection": {
 			"uri": 1,

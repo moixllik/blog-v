@@ -8,9 +8,8 @@
     @include 'html/frameworks'
 </head>
 
-<body class="container">
-    <main>
-        @include 'html/nav'
+<body class="flex">
+    <main class="container">
         <header>
             <h1><a href="/search/">Búsqueda en Publicaciones</a></h1>
             <form action="/search/">
@@ -29,6 +28,7 @@
         </article>
         @include 'html/footer'
     </main>
+    @include 'html/nav'
 </body>
 
 </html>

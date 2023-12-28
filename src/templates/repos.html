@@ -8,14 +8,14 @@
     @include 'html/frameworks'
 </head>
 
-<body class="container">
-    <main>
-        @include 'html/nav'
+<body class="flex">
+    <main class="container">
         <header>
             <h1><a href="/repos/">Lista de Proyectos</a></h1>
         </header>
         <article>
             <h2>Actualizados</h2>
+            <p>Se da mantenimiento o se encuentra en desarrollo</p>
             <dl>
                 @for repo in repos_opened
                 <dt><a href="@repo.html_url">@repo.name</a></dt>
@@ -24,6 +24,7 @@
             </dl>
 
             <h2>Ramas</h2>
+            <p>Iniciados por la comunidad y se realizan aportes</p>
             <dl>
                 @for repo in repos_forked
                 <dt><a href="@repo.html_url">@repo.name</a></dt>
@@ -32,6 +33,7 @@
             </dl>
 
             <h2>Archivados</h2>
+            <p>Se ha detenido su desarrollo</p>
             <dl>
                 @for repo in repos_archived
                 <dt><a href="@repo.html_url">@repo.name</a></dt>
@@ -41,6 +43,7 @@
         </article>
         @include 'html/footer'
     </main>
+    @include 'html/nav'
 </body>
 
 </html>
